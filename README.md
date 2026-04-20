@@ -1,3 +1,14 @@
+# RNBO + Juce UI crash
+
+We used https://github.com/Cycling74/rnbo.example.juce on `juce 8` branch with a simple patch.
+
+`patch.maxpat` is a basic patch with an audio passthrough and messages sent regularly. `sleep_for` was added at line 705 of rnbo_source.cpp to simulate the audio processing load. Two parameters control the sleep duration and the period between messages.
+
+`screencap.mov` shows the issue: when closing the default UI while the patch is processing audio and emitting messages, the plugin can crash the host. The crashes don't seem to occur if we uncomment line 40 of CustomAudioProcessor. We're getting the same crash in a project using Juce's WebView.
+
+_____________________
+
+
 # RNBO JUCE Examples
 
 So you want to build your own DAW or a Plugin? This template should get you started with your own Standalone Desktop application and Audio Plugin, using the source code export feature of RNBO, part of [Max 8](https://cycling74.com/max8/) made by [Cycling '74](https://cycling74.com/). 

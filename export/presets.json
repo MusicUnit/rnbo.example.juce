@@ -1,0 +1,16 @@
+[
+  {
+    "name": "untitled",
+    "preset": {
+      "MESSAGE": {
+        "value": 10
+      },
+      "PROCESS": {
+        "value": 10
+      },
+      "__sps": {
+        "DUMMY": {}
+      }
+    }
+  }
+]
