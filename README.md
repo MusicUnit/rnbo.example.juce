@@ -6,6 +6,8 @@ We used https://github.com/Cycling74/rnbo.example.juce on `juce 8` branch with a
 
 `screencap.mov` shows the issue: when closing the default UI while the patch is processing audio and emitting messages, the plugin can crash the host. The crashes don't seem to occur if we uncomment line 40 of CustomAudioProcessor. We're getting the same crash in a project using Juce's WebView.
 
+The issue is easier to trigger when events are sent frequently and the process audio is heavy (since MessageEvents seem to be sent once the audio buffer has been processed), which is why we made the test patch this way.
+
 _____________________
 
 
